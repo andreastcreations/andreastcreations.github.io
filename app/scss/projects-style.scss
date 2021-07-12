@@ -1,0 +1,189 @@
+@import "global/variables";
+@import "global/mixins";
+@import "global/global";
+@import "page-specific/footer";
+
+.project {
+    background-image: linear-gradient(135deg, lighten($color-platinum, 5%) 0%, darken($color-platinum, 5%) 100%);
+
+    &__container {
+        @include containers-setup;
+        min-height: 100vh;
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 32px;
+        }
+
+        &--content {
+            @include flex-center-center;
+        }
+        
+        &--image {
+            display: block;
+            width: 25vw;
+            height: 25vw;
+            margin-bottom: auto;
+            margin-right: 2rem;
+            overflow: hidden;
+            
+            img {
+                height: 100%;
+            }
+        }
+        
+        &--description {
+            width: 50%;
+
+            p {
+                text-align: justify;
+            }
+        }
+        
+        &--button {
+            @include flex-center-center;
+            height: 40px;
+            width: 150px;
+            margin-top: 1rem;
+
+            a {
+                @include disp-ai-jc-inherit;
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+                color: $color-dark-charcoal;
+                background: lighten($color-light-blue, 10%);
+                border: 2px solid;
+                border-color: rgba($color-dark-charcoal, 0.5);
+                border-radius: 0.5rem;
+                cursor: pointer;
+            }
+            
+            a:active {
+                color: $color-dark-charcoal;
+            }
+
+            a:hover {
+                background: lighten($color-cadet-gray, 10%);
+                transition: all 0.3s ease;
+            }
+        }
+
+        h3 {
+            margin-top: 10vh;
+            font-size: 1.5rem;
+        }
+
+        &--media {
+            @include flex-center-center;
+            flex-direction: column;
+            margin-top: 5vh;
+
+            iframe {
+                width: 720px;
+                height: 405px; 
+            }
+            
+            .image-gallery {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                margin-bottom: 5vh;
+
+                img {
+                    width: 35vw;
+                    height: auto;
+                    margin: 0.5rem;
+                    cursor: pointer;
+                }
+            }
+
+            .modal__overlay {
+                @include flex-center-center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba($color-dark-charcoal, 0.5);
+                opacity: 0;
+                z-index: -99;
+
+                .modal__img {
+                    width: 85%;
+                }
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .modal__visible {
+                opacity: 1;
+                z-index: 99;
+                transition: all 0.3s ease;
+            }
+        }
+
+        &--back__button {
+            background: $color-dark-charcoal;
+            border: 10px solid $color-dark-charcoal;
+            border-radius: 10%;
+            position: fixed;
+            top: 3.5%; 
+            right: 5%;
+            transform: translate(5%, 3.5%);
+            cursor: pointer;
+            z-index: 99;
+
+            .fa-caret-square-left {
+                font-size: 2.5rem;
+                color: $color-platinum;
+            }
+        }
+
+        &--back__button:hover {
+            .fa-caret-square-left {
+                color: $color-light-blue;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .project__container {
+        &--content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+        }
+
+        &--image {
+            display: block;
+            width: 50vw;
+            height: 50vw;
+            margin-right: 0;
+            margin-bottom: 2rem;
+        }
+
+        &--description {
+            width: 85%;
+        }
+
+        &--media {
+            margin-top: 5vh;
+
+            video {
+                width: 75vw;
+            }
+            
+            img {
+                width: 75vw;
+            }
+        }
+    }
+}

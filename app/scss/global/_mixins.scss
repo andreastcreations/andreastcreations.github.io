@@ -1,0 +1,26 @@
+@mixin flex-center-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin disp-ai-jc-inherit {
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+}
+
+@mixin containers-setup {
+    @include flex-center-center;
+    flex-direction: column;
+    margin: auto 10vw;
+    z-index: 1;
+}
+
+@mixin bg-clip-txtfill($color: #000) {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: $color;
+    -moz-text-fill-color: $color;
+}

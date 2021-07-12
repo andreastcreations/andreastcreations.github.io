@@ -1,0 +1,94 @@
+/* Footer */
+
+.footer {
+    background-color: $color-dark-charcoal;
+    color: $color-platinum;
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 10vh;
+    }
+
+    &__container {
+        @include flex-center-center;
+        flex-direction: column;
+        padding-top: 15vh;
+        z-index: 1;
+
+        &--content {
+            display: grid;
+            grid-template-columns: 3fr 2fr 3fr;
+            grid-template-areas: 
+                "mail separator social";
+        }
+
+        &--mail {
+            @include flex-center-center;
+            grid-area: mail;
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            p {
+                padding: 1rem;
+            }
+        }
+
+        &--separator {
+            @include flex-center-center;
+            grid-area: separator;
+            background: rgba($color-platinum, 0.5);
+            height: 10vh;
+            width: 1px;
+            margin: auto 6rem;
+        }
+        
+        &--social__media {
+            @include flex-center-center;
+            grid-area: social;
+
+            .social__icons {
+                @include disp-ai-jc-inherit;
+
+                .fab {
+                    color: $color-platinum;
+                    margin: 0 1rem;
+                    padding: 0.5rem;
+                    font-size: 2rem;
+                    border: 1px solid rgba($color-platinum, 0.5);
+                    border-radius: 0.5rem;
+                }
+
+                .fab:hover {
+                    transform: scale(1.1);
+                    transition: 0.2s ease-in;
+                }
+            }
+        }
+
+        &--rights {
+            @include flex-center-center;
+            padding-top: 5vh;
+
+            p {
+                margin: 3rem auto;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer__container--content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .footer__container--social__media {
+        margin-top: 2rem;
+    }
+
+    .footer__container--separator {
+        display: none;
+    }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Async Calls - Andreas T. Media</title>
+    <link rel="stylesheet" href="/dist/css/projects-style.css">
+    <link rel="stylesheet" 
+          href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+          integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" 
+          crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src="/dist/js/page-fade.js"></script>
+
+    <!-- Project -->
+    <div class="project">
+        <div class="project__container">
+            <span onclick="transitionToPage('../index.html#coding-challenges')" class="project__container--back__button">
+                <div class="fa fa-caret-square-left"></div>
+            </span>
+            <h1>API Asynchronous Calls</h1>
+            <div class="project__container--content">
+                <div class="project__container--image">
+                    <img src="/images/portfolio-website/portfolio-website.jpg">
+                </div>
+                <div class="project__container--description">
+                    <p>&nbsp;&nbsp;This project began from experimenting with JSON files. My goal was to download some data from an online MMORPG game I love, Guild Wars 2. The game has an API that you can use to get any data about game items, achievements and personal character data. This would be done in the following order:
+                    <li>Get the list of all items (get a JSON file of IDs)</li>
+                    <li>For each ID, get all the JSON details for the specific item and save its name</li>
+                    <li>Create a dictionary with the item name as key and the ID as value</li>
+                    This way I could search an item by its name and with its ID I could get the information I needed with an API call.
+                    <br><br>&nbsp;&nbsp;The first step I took was to create some basic classes and methods that are responsible for downloading the JSON files. I also created some more methods to manipulate the files after having downloaded them.<br><br>&nbsp;&nbsp;The second step was to save some time. I had to make around 60000 calls to get all the items' names and that was taking ages to complete. For that reason I created a simple console application that would make all the requests asynchronously and save the final dictionary I wanted to create in a JSON format.
+                    <br><br>&nbsp;&nbsp;In order to have more fun, I used the Dependency Injection pattern with an HTTPClientFactory. To prevent any timeouts and errors from stopping the app, I also implemented HTTP retry policies in the JSON downloader functions by using Polly.
+                    <br><br>You can find the full projects on my GitHub.</p>
+                    <div class="project__container--button">
+                        <a href="https://github.com/andreastmedia/Json_Processing" target="_blank" class="button-link">JSON functions</a>
+                    </div>
+                    <div class="project__container--button">
+                        <a href="https://github.com/andreastmedia/GW2DownloadJsonData" target="_blank" class="button-link">API Calls</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <!-- Footer -- -->
+    <div class="footer" id="connect">
+        <div class="footer__container">
+            <h1>Connect</h1>
+            <div class="footer__container--content">
+                <div class="footer__container--mail">
+                    <h3>E-mail :</h3>
+                    <p>atsimpan@gmail.com</p>
+                </div>
+                <span class="footer__container--separator"></span>
+                <div class="footer__container--social__media">
+                    <div class="social__icons">
+                        <a href="https://www.linkedin.com/in/andreas-tsimpanogiannis/" class="social__icon--link" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/andreastmedia" class="social__icon--link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__container--rights">
+                <p>Copyright © 2021 Andreas T. Media. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/dist/js/images-clickable.js"></script>
+    <script src="/dist/js/images-prevent-saving.js"></script>
+</body>
+</html>
