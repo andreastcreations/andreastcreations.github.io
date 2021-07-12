@@ -110,8 +110,8 @@
 
     &__container {
         @include containers-setup;
-        height: 100vh;
-        padding: 0 4rem;
+        min-height: 100vh;
+        padding: 10vh 4rem;
 
         &--content {
             display: flex;
